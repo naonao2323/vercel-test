@@ -14,18 +14,18 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Hello <a href="https://nextjs.org">Next.js!</a>
+          About <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles.description}>
           Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          <code className={styles.code}>pages/about.js</code>
         </p>
-
+        
         <Links />
       </main>
 
-    <Footer />
+      <Footer />
     </div>
   )
 }
