@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import { Footer } from '../components/Footer'
 import { Main } from '../components/Main'
@@ -28,7 +29,7 @@ export default function Home() {
       <Head>
         <title>Create Next App</title>
       </Head>
-      <a href="/about"><button onClick={handleClick}>ボタン</button></a>
+      <Link href="/about"><a><button onClick={handleClick}>ボタン</button></a></Link>
       <Header />
       <Main page="index"/>
       <Footer />
