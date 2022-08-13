@@ -8,6 +8,7 @@ export function HeadLine(props) {
                 Get started by editing{' '}
                 {props.children}
             </p>
+            <div className={classes.itemsCounter}><h3>アイテム数は{props.itemsCounter}です！</h3></div>
         </div>
     )
 }

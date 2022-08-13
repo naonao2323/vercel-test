@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer'
 import { Main } from '../components/Main'
 import { Header } from "../components/Header"
 
+
 export default function Home(props) {
   const {count, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd} = props;
 

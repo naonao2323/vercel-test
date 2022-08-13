@@ -25,3 +25,10 @@
   line-height: 1.5;
   font-size: 1.5rem;
 }
+
+.itemsCounter {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+}
