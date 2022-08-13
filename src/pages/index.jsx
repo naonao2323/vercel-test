@@ -10,10 +10,11 @@ export default function Home() {
   const [count, setCount] = useState(1);
   const [text, setText] = useState("");
   const [isShow, setIsShow] = useState(true);
+  const [array, setArray] = useState([]);
 
   const handleClick = useCallback(() => {
     if(count < 10) {
-      setCount(count =>(count+1));
+      setCount(prevCount =>(prevCount+1));
     }
   }, []);
 
@@ -26,8 +27,21 @@ export default function Home() {
   };
 
   const handleDisplay = useCallback(() => {
-    setIsShow((isShow) => !isShow);
+    setIsShow((prevIsShow) => !prevIsShow);
   });
+
+  const handleAdd = useCallback(() => {
+    setArray((prevArray) => {
+      if(prevArray.some(item => item === text)) {
+        alert("同じ文字列禁止！！");
+        setText("");
+        return prevArray;
+      }
+      const newArray = [...prevArray, text];
+      setText("");
+      return newArray;
+    });
+  }, [text]);
 
   useEffect(() => {
     document.body.style.backgroundColor = "lightblue";
@@ -48,6 +62,12 @@ export default function Home() {
         <button onClick={handleClick}>ボタン</button>
         <input type="text" value={text} onChange={handleChange} />
         <button onClick={handleDisplay}>{isShow ?　"非表示" : "表示"}</button>
+        <button onClick={handleAdd}>追加</button>
+        <ul>
+          {array.map((item, i) => {
+            return <li key={i}>{item}</li>
+          })}
+        </ul>
       </div>
       <Main page="index"/>
       <Footer />
