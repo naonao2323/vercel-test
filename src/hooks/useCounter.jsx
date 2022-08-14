@@ -12,11 +12,11 @@ export const useCounter = () => {
       if(count < 10) {
         setCount(prevCount =>(prevCount+1));
       }
-    }, []);
+    }, [count]);
   
     const handleDisplay = useCallback(() => {
       setIsShow((prevIsShow) => !prevIsShow);
-    });
+    }, []);
   
     return { count, doubleCount, isShow, handleClick, handleDisplay};
   };
