@@ -1,9 +1,35 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useReducer } from 'react';
+
+const initialState = {
+    posts: [],
+    loading: true,
+    error: null,
+};
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case "end": {
+            return {
+                ...state,
+                posts: action.data,
+                loading: false,
+            };
+        }
+        case "error": {
+            return {
+                ...state,
+                error: state.error,
+                loading: false,
+            };
+        }
+        default: {
+            throw new Error("no such action type!!!")
+        }
+    }
+}
 
 export const Posts = () => {
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     const getPosts = useCallback(async () => {
         try {
@@ -12,23 +38,22 @@ export const Posts = () => {
                 throw new Error("データが発生したため、データ取得できませんでした。")
             }
             const json = await res.json();
-            setPosts(posts => posts = json);
+            dispatch({ type: "end", data: json });
         } catch (error) {
-            setError(error);
+            dispatch({ type: "error", error: error });
         }
-        setLoading(false);
     }, []);
 
     useEffect(() => {
         getPosts();
     }, [getPosts]);
 
-    if (loading) return (<div>loading中です</div>);
-    if (error) return (<div>{error.message}</div>);
-    if (posts.length <= 0) return (<div>データは空です。</div>);
+    if (state.loading) return (<div>loading中です</div>);
+    if (state.error) return (<div>{state.error.message}</div>);
+    if (state.posts.length <= 0) return (<div>データは空です。</div>);
     return (
         <ol>
-            {posts.map((post, x) => {
+            {state.posts.map((post, x) => {
                 return (
                     <li key={x}>{post.title}</li>
                 )

@@ -5,8 +5,7 @@ import { Header } from 'src/components/Header'
 import styles from 'src/styles/Home.module.css'
 
 const About = (props) => {
-  const {doubleCount, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd} = props;
-
+  const { doubleCount, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd } = props;
   return (
     <div className={styles.container}>
       <Head>
@@ -14,10 +13,10 @@ const About = (props) => {
       </Head>
       <Header />
       <div className={styles.countSpace}>
-        {isShow ? <p>{doubleCount}</p>: null}
+        {isShow ? <p>{doubleCount}</p> : null}
         <button onClick={handleClick}>ボタン</button>
         <input type="text" value={text} onChange={handleChange} />
-        <button onClick={handleDisplay}>{isShow ?　"非表示" : "表示"}</button>
+        <button onClick={handleDisplay}>{isShow ? "非表示" : "表示"}</button>
         <button onClick={handleAdd}>追加</button>
         <ul>
           {array.map((item, i) => {
