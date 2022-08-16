@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router';
 import { CommentsByPostsId } from "src/components/Commnets/CommentsByPostId";
-import { UserByUserId } from "src/components/User/UserByUserID";
+import { UserByUserId } from "src/components/User/UserByUserId";
 import { usePost } from 'src/hooks/usePost';
 
 export const Post = () => {
