@@ -1,11 +1,10 @@
 import Head from 'next/head'
 import { Header } from 'src/components/Header'
-import styles from 'src/styles/Home.module.css'
 
 const Index = () => {
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Create Next App</title>
       </Head>
