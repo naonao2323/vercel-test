@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { Header } from '../components/Header'
+import styles from 'src/styles/Home.module.css'
+import { Header } from 'src/components/Header'
 import { Posts } from 'src/components/Posts';
 
-const Home = () => {
+const Post = () => {
 
   return (
     <div className={styles.container}>
@@ -16,4 +16,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default Post;
