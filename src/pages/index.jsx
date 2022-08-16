@@ -2,8 +2,8 @@ import Head from 'next/head'
 import { Header } from 'src/components/Header'
 import styles from 'src/styles/Home.module.css'
 
-const Index = (props) => {
-  const { doubleCount, isShow, handleClick, handleDisplay, text, array, handleChange, handleAdd } = props;
+const Index = () => {
+
   return (
     <div className={styles.container}>
       <Head>
