@@ -1,7 +1,8 @@
+import Link from "next/link";
 import { useComments } from "src/hooks/useComments"
 
 export const Comments = () => {
-    const { comments, error, isLoading } = useComments();
+    const { comments, error, isLoading, isEmpty } = useComments();
 
     if (isLoading) return (
         <div>
@@ -10,15 +11,19 @@ export const Comments = () => {
     )
     if (error) {
         return (
-            <p>{error}</p>
+            <p>{error.message}</p>
         )
     }
-
+    if (isEmpty) {
+        return (
+            <p>データは空です</p>
+        )
+    }
     return (
         <div>
             <ol>
                 {comments.map((comment) => {
-                    return (<li key={comment.id}>{comment.body}</li>)
+                    return (<li key={comment.id}><Link href={`/comments/${comment.id}`}><a>{comment.body}</a></Link></li>)
                 })}
             </ol>
         </div>

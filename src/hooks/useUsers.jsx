@@ -8,5 +8,6 @@ export const useUsers = () => {
         users: data,
         error,
         isLoading: !error && !data,
+        isEmpty: data && data.length <= 0,
     };
 }
