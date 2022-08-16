@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { usePosts } from "src/hooks/usePosts";
+import { usePosts } from "src/hooks/useArrayFetch";
 
 export const Posts = () => {
-    const { data, error, isLoading, isEmpty } = usePosts("https://jsonplaceholder.typicode.com/posts");
+    const { data, error, isLoading, isEmpty } = usePosts();
 
     if (isLoading) return (<div>loading中です</div>);
     if (error) return (<div>{error.message}</div>);

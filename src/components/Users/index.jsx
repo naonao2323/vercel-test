@@ -1,8 +1,8 @@
-import { useUsers } from "src/hooks/useUsers"
 import Link from 'next/link'
+import { useUsers } from 'src/hooks/useArrayFetch'
 
 export const Users = () => {
-    const { users, error, isLoading, isEmpty } = useUsers();
+    const { data, error, isLoading, isEmpty } = useUsers();
 
     if (isLoading) return (
         <div>
@@ -23,7 +23,7 @@ export const Users = () => {
     return (
         <div>
             <ol>
-                {users.map((user) => {
+                {data.map((user) => {
                     return (
                         <li key={user.id}><Link href={`users/${user.id}`}><a>{user.name}({user.email})</a></Link></li>
                     )

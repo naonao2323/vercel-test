@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { useComments } from "src/hooks/useComments"
+import { useComments } from "src/hooks/useArrayFetch";
 
 export const Comments = () => {
-    const { comments, error, isLoading, isEmpty } = useComments();
+    const { data, error, isLoading, isEmpty } = useComments();
 
     if (isLoading) return (
         <div>
@@ -22,7 +22,7 @@ export const Comments = () => {
     return (
         <div>
             <ol>
-                {comments.map((comment) => {
+                {data.map((comment) => {
                     return (<li key={comment.id}><Link href={`/comments/${comment.id}`}><a>{comment.body}</a></Link></li>)
                 })}
             </ol>
