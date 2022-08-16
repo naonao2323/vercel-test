@@ -5,7 +5,7 @@ export const Comments = () => {
 
     if (isLoading) return (
         <div>
-            <p>ローディング中z</p>
+            <p>ローディング中</p>
         </div>
     )
     if (error) {
