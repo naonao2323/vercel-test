@@ -9,12 +9,19 @@ export const Posts = () => {
     if (isEmpty) return (<div>データは空です。</div>);
 
     return (
-        <ol>
+        <ul className={"space-y-4"}>
             {data.map((post) => {
                 return (
-                    <li key={post.id}><Link href={`/posts/${post.id}`}><a>{post.title}</a></Link></li>
+                    <li key={post.id}>
+                        <Link href={`/posts/${post.id}`}>
+                            <a className={"block group"}>
+                                <h1 className={"font-bold group-hover:text-blue-500"}>{post.title}</h1>
+                                <p className={"text-sm text-gray-600 group-hover:text-blue-400"}>{post.body}</p>
+                            </a>
+                        </Link>
+                    </li>
                 )
             })}
-        </ol>
+        </ul>
     )
 }
