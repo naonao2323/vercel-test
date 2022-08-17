@@ -10,8 +10,7 @@ const Index = () => {
       </Head>
       <Header />
       <h1>Next.jsで学ぶReact講座</h1>
-      <p>JSONPLACEHOLDERを色々叩いてみる
-      </p>
+      <p>JSONPLACEHOLDERを色々叩いてみる</p>
     </div>
   )
 }

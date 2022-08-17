@@ -1,4 +1,5 @@
 import React from 'react'
+import 'tailwindcss/tailwind.css'
 import Head from 'next/head'
 import 'src/styles/globals.css'
 import { Layout } from 'src/components/Layout';
