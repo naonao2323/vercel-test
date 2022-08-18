@@ -1,12 +1,44 @@
 import { Comment as CommentComponent } from "src/components/Comment";
 import { Header } from 'src/components/Header'
+import { SWRConfig } from "swr";
 
-const Comment = () => {
+export const getStaticPaths = async () => {
+    const COMMENTS_API_URL = "https://jsonplaceholder.typicode.com/comments";
+    const comments = await fetch(COMMENTS_API_URL);
+    const commentsData = await comments.json();
+    const paths = commentsData.map((comment) => ({
+        params: { id: comment.id.toString() },
+    }))
+    return {
+        paths,
+        fallback: false,
+    };
+};
+
+export const getStaticProps = async (ctx) => {
+    const id = ctx.params;
+    const COMMENT_API_URL = `https://jsonplaceholder.typicode.com/comments/${id}`;
+    const comment = await fetch(COMMENT_API_URL);
+    const commentData = await comment.json();
+
+    return {
+        props: {
+            fallback: {
+                [COMMENT_API_URL]: commentData,
+            },
+        }
+    }
+};
+
+const Comment = (props) => {
+    const { fallback } = props;
     return (
-        <div>
-            <Header />
-            <CommentComponent />
-        </div>
+        <SWRConfig value={{ fallback }}>
+            <div>
+                <Header />
+                <CommentComponent />
+            </div>
+        </SWRConfig>
     )
 };
 
