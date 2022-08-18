@@ -16,9 +16,10 @@ export const Post = () => {
             <Head>
                 <title>{data.title}</title>
             </Head>
-            <h1>{data.title}</h1>
-            <p>{data.body}</p>
             <UserByUserId userId={data.userId} />
+            <h1 className={"font-bold text-3xl"}>{data.title}</h1>
+            <p className={"text-gray-900 text-xl my-6"}>{data.body}</p>
+            <h2 className={"font-bold text-2xl border-b"}>コメント一覧</h2>
             <CommentsByPostsId id={data.id} />
         </div>
     )

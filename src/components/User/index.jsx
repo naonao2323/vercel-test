@@ -21,18 +21,18 @@ export const User = () => {
     }
     return (
         <div>
-            <h1>{data.name}</h1>
-            <h2>詳細</h2>
-            <ul>
-                <li>{data.email}</li>
-                <li>{data.username}</li>
-                <li>{data.address.city}</li>
-                <li>{data.phone}</li>
-                <li>{data.website}</li>
-                <li>{data.company.name}</li>
+            <h1 className={"font-bold text-3xl mb-2"}>{data.name}</h1>
+            <h2 className={"font-bold text-xl mb-4 border-b text-center"}>詳細</h2>
+            <ul className={"list-inside list-disc text-lg"}>
+                <li>メール:{data.email}</li>
+                <li>アカウント名:{data.username}</li>
+                <li>住所:{data.address.city}</li>
+                <li>電話番号:{data.phone}</li>
+                <li>サイト:{data.website}</li>
+                <li>会社名:{data.company.name}</li>
             </ul>
-            <h2>投稿</h2>
+            <h2 className={"font-bold text-xl mb-4 border-b text-center"}>投稿</h2>
             <PostsByUserId userId={data.id} />
-        </div>
+        </div >
     )
 }

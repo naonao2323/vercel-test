@@ -9,8 +9,8 @@ const Index = () => {
         <title>Create Next App</title>
       </Head>
       <Header />
-      <h1>Next.jsで学ぶReact講座</h1>
-      <p>JSONPLACEHOLDERを色々叩いてみる</p>
+      <h1 className={"font-bold text-3xl mb-6"}>Next.jsで学ぶReact講座</h1>
+      <p className={"text-xl"}>JSONPLACEHOLDERを色々叩いてみる</p>
     </div>
   )
 }

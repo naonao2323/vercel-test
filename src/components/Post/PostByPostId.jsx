@@ -9,8 +9,8 @@ export const PostByCommentId = (props) => {
     if (isEmpty) return (<div>データは空です。</div>);
 
     return (
-        <div>
-            <Link href={`/posts/${data.id}`}><a>{data.title}</a></Link>
+        <div className={"text-center"}>
+            <Link href={`/posts/${data.id}`}><a className={"text-lg hover:text-blue-500"}>{data.title}</a></Link>
         </div>
     )
 };
